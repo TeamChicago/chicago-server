@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @Transactional(readOnly = true) // 읽기 작업 수행능력 향상
 @RequiredArgsConstructor // final 변수로 생성자 생성
-public class NewService {
+public class NewsService {
 
     private final NewsRepository newsRepository;
 
@@ -19,7 +19,7 @@ public class NewService {
      * 뉴스 등록
      */
     @Transactional
-    public Long join(News news){
+    public Long enroll(News news){
         newsRepository.save(news);
         return news.getId();
     }
