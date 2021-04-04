@@ -1,0 +1,27 @@
+#Database
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fakenews
+    username: postres
+    password: seho
+
+    #Connection Pool
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 10
+
+  #JPA
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    show-sql: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual: true
