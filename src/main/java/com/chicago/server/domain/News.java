@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Getter @Setter
 @NoArgsConstructor
 public class News {
-
+    //test of git kraken
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "news_id")
     private Long id;
