@@ -20,6 +20,7 @@ public class News {
 
     private String title;
 
+    @Lob
     private String content;
 
     private String writer;
