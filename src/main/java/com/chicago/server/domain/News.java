@@ -29,10 +29,14 @@ public class News {
     @CreationTimestamp
     private LocalDateTime writtenTime;
 
+    @Enumerated(EnumType.STRING)
+    private NewsStatus newsStatus;
+
     @Builder
     public News(String title, String content, String writer){
         this.title = title;
         this.content = content;
         this.writer = writer;
     }
+
 }

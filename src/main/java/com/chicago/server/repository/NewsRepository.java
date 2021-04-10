@@ -28,9 +28,14 @@ public class NewsRepository {
     }
 
     public List<News> findByTitle(String title){
-        List<News> result = em.createQuery("select n from News n where title = :title", News.class)
+        List<News> result = em.createQuery("select n from News n where n.title = :title", News.class)
                 .setParameter("title", title)
                 .getResultList();
         return result;
+    }
+
+    public void removeNews(Long id){
+        News news = em.find(News.class, id);
+        em.remove(news);
     }
 }

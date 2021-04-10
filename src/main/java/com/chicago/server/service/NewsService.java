@@ -38,4 +38,10 @@ public class NewsService {
         return newsRepository.findOne(newsId);
     }
 
+    /**
+     * 해당 뉴스 삭제
+     */
+    public void deleteOne(Long newsId){
+        newsRepository.removeNews(newsId);
+    }
 }
