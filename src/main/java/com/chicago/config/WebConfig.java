@@ -1,4 +1,4 @@
-package com.chicago.server.config;
+package com.chicago.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

@@ -14,7 +14,6 @@ import javax.swing.text.html.parser.Entity;
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
-@Transactional
 public class NewsServiceTest {
 
     @Autowired
@@ -33,8 +32,6 @@ public class NewsServiceTest {
         news.setTitle("테슬라 주가 대폭 하락");
         news.setContent("만우절");
         news.setWriter("황세호");
-
-        em.persist(news);
 
         //when
         Long saveId = newsService.enroll(news);
