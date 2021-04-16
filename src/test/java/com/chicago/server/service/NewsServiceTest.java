@@ -6,6 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.swing.text.html.parser.Entity;
@@ -13,6 +14,7 @@ import javax.swing.text.html.parser.Entity;
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
+@Transactional
 public class NewsServiceTest {
 
     @Autowired
@@ -32,6 +34,7 @@ public class NewsServiceTest {
         news.setContent("만우절");
         news.setWriter("황세호");
 
+        em.persist(news);
 
         //when
         Long saveId = newsService.enroll(news);
