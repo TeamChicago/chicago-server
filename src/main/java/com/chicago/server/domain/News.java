@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -20,6 +21,8 @@ public class News {
 
     private String title;
 
+    @Lob
+    @Type(type = "text")
     private String content;
 
     private String writer;
