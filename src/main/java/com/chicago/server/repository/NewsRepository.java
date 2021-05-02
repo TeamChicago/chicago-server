@@ -22,13 +22,13 @@ public class NewsRepository {
     }
 
     public List<News> findAll(){
-        List<News> result = em.createQuery("select n from News n", News.class)
+        List<News> result = em.createQuery("select n from News n order by n.id desc", News.class)
                 .getResultList();
         return result;
     }
 
     public List<News> findByTitle(String title){
-        List<News> result = em.createQuery("select n from News n where n.title = :title", News.class)
+        List<News> result = em.createQuery("select n from News n where n.title = :title order by n.id desc ", News.class)
                 .setParameter("title", title)
                 .getResultList();
         return result;

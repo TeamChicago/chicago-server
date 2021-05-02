@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### postgres config
+/src/main/resources/application.yml
