@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,11 +25,21 @@ public class NewsController {
     private NewsService newsService;
 
     @RequestMapping("news")
-    public List<News> newView(@PageableDefault Pageable pageable){
+    public List<News> newsView(@PageableDefault Pageable pageable){
         List<News> newsList = newsService.loadNews(0, 10, "writtenTime");
 
         System.out.println("hihi");
 
         return newsList;
+    }
+
+    @PostMapping("news")
+    public String newPost(@RequestBody NewsPostForm newsPostForm){
+        News news = new News();
+        news.setWriter(newsPostForm.getWriter());
+        news.setContent(newsPostForm.getContent());
+        news.setTitle(newsPostForm.getTitle());
+        newsService.enroll(news);
+        return "success to insert";
     }
 }
