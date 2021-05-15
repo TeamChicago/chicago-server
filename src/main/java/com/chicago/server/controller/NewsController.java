@@ -24,6 +24,9 @@ public class NewsController {
     @Autowired
     private NewsService newsService;
 
+    /**
+     * 뉴스 조회 Controller
+     */
     @RequestMapping("news")
     public List<News> newsView(@PageableDefault Pageable pageable){
         List<News> newsList = newsService.loadNews(0, 10, "writtenTime");
@@ -33,6 +36,9 @@ public class NewsController {
         return newsList;
     }
 
+    /**
+     * 뉴스 삽입 Controller
+     */
     @PostMapping("news")
     public String newPost(@RequestBody NewsPostForm newsPostForm){
         News news = new News();
