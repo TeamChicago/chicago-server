@@ -41,8 +41,9 @@ public class NewsController {
      */
     @PostMapping("news")
     public String newPost(@RequestBody NewsPostForm newsPostForm){
-        Random rand = new Random();
-        int reliability = rand.nextInt(100);
+        int minNum = 83;
+        int maxNum = 100;
+        int reliability = new Random().nextInt((maxNum - minNum) + 1) + minNum;
         News news = new News();
         news.setWriter(newsPostForm.getWriter());
         news.setContent(newsPostForm.getContent());
