@@ -9,7 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.Random;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -41,10 +41,13 @@ public class NewsController {
      */
     @PostMapping("news")
     public String newPost(@RequestBody NewsPostForm newsPostForm){
+        Random rand = new Random();
+        int reliability = rand.nextInt(100);
         News news = new News();
         news.setWriter(newsPostForm.getWriter());
         news.setContent(newsPostForm.getContent());
         news.setTitle(newsPostForm.getTitle());
+        news.setReliability(reliability);
         newsService.enroll(news);
         return "success to insert";
     }

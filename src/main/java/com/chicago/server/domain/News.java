@@ -33,7 +33,7 @@ public class News {
     @CreationTimestamp
     private LocalDateTime writtenTime;
 
-    @Enumerated(EnumType.STRING)
+    //@Enumerated(EnumType.STRING)
     private int reliability;
 
     @OneToMany(mappedBy = "news")
