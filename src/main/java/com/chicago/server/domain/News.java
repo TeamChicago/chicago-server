@@ -34,7 +34,7 @@ public class News {
     private LocalDateTime writtenTime;
 
     @Enumerated(EnumType.STRING)
-    private NewsStatus newsStatus;
+    private int reliability;
 
     @OneToMany(mappedBy = "news")
     private List<Comment> comments = new ArrayList<>();
