@@ -1,6 +1,10 @@
 #Database
 spring:
   datasource:
+    #url: jdbc:postgresql://postgres:5432/chicago_db
+    #username: chicago
+    #password: 1q2w3e
+
     url: jdbc:postgresql://localhost:5432/fakenews
     username: postgres
     password: seho

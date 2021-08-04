@@ -5,9 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -21,6 +24,7 @@ public class News {
     private String title;
 
     @Lob
+    @Type(type = "text")
     private String content;
 
     private String writer;
@@ -31,6 +35,12 @@ public class News {
 
     @Enumerated(EnumType.STRING)
     private NewsStatus newsStatus;
+
+    @OneToMany(mappedBy = "news")
+    private List<Comment> comments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "news")
+    private List<Likes> likes = new ArrayList<>();
 
     @Builder
     public News(String title, String content, String writer){
