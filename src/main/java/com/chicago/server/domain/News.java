@@ -33,8 +33,8 @@ public class News {
     @CreationTimestamp
     private LocalDateTime writtenTime;
 
-    @Enumerated(EnumType.STRING)
-    private NewsStatus newsStatus;
+    //@Enumerated(EnumType.STRING)
+    private int reliability;
 
     @OneToMany(mappedBy = "news")
     private List<Comment> comments = new ArrayList<>();
